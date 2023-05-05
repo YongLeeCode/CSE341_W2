@@ -37,8 +37,17 @@ const searchContact = async (req, res, next) => {
 
 // POST requests
 const addContact = async (req, res, next) => {
+  
+const contact = {
+  firstName: req.body.firstName,
+  lastName: req.body.lastName,
+  email: req.body.email,
+  favoriteColor: req.body.favoriteColor,
+  birthday: req.body.birthday
+}
+
   try {
-    const result = await mongodb.getDb().db('CSE341').collection('contacts').insertOne(req.body);
+    const result = await mongodb.getDb().db('CSE341').collection('contacts').insertOne(contact);
     res.setHeader(`Content-Type`, `application/json`);
     result
       ? res
