@@ -9,7 +9,7 @@ const getContacts = async (req, res, next) => {
   // console.log(result);
   result.toArray().then((items) => {
     res.setHeader('Content-Type', 'application/json');
-    console.log(items)
+    // console.log(items)
     res.status(200).json(items);
   });
 };
